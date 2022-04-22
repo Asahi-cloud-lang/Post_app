@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pg'
 gem 'devise'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'letter_opener_web'
 gem 'dotenv-rails'
 gem 'net-smtp'
