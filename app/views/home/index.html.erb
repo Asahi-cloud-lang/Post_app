@@ -13,9 +13,19 @@
 <header>
     <nav>
         <% if user_signed_in? %>
-            <%= "こんにちは#{current_user.email}さん"  %><br>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-primary my-3" %>
+            <h1>ホーム画面</h1>
+            <div class="my-3">
+                <%= link_to '記事一覧', articles_path, class: "btn btn-primary" %>
+            </div>
+            <div class="my-3">
+                <%= link_to '編集', edit_user_registration_path, class: "btn btn-primary" %>
+            </div>
+            <div class="my-3">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+            </div>
         <% else %>
+            <h1>ログインしてください。</h1>
+            <p>ユーザー登録されていない方は、ユーザー登録からお願い致します。</p>
             <%= link_to 'サインアップ', new_user_registration_path, class: "btn btn-primary" %>
             <%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary" %>
         <% end %>

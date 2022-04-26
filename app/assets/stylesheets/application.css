@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ .article-img {
+    width: 120px;
+}
+
+.article-new-form {
+    margin: 0 auto;
+}
+
+.article .article-table {
+    width: 80%;
+    margin: 0 auto;
+}

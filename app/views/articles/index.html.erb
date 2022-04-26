@@ -1,0 +1,29 @@
+<h1 class="text-center">記事一覧</h1>
+<div class="my-3 text-center">
+    <%= link_to '記事新規作成', new_article_path, class: "btn btn-primary col-md-4" %>
+</div>
+<table class="table table-border">
+    <tr>
+        <th scope="col">詳細表示</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">内容</th>
+        <th scope="col">画像</th>
+        <th scope="col">編集・削除</th>
+    </tr>
+    <% @articles.each do |article| %>
+    <tr>
+        <td><%= link_to '詳細', article_path(article.id), class: "btn btn-primary" %></td>
+        <td><%= article.title %></td>
+        <td><%= article.content %></td>
+        <td>
+            <% if article.image_presence == true %>
+                <%= image_tag "/article_images#{article.image}", class: "article-img" %>
+            <% end %>
+        </td>
+        <td>
+            <%= link_to '編集', edit_article_path(article.id), class: "btn btn-success" %>
+            <%= link_to '削除', article_path(article.id), data: { confirm: "削除してよろしいでしょうか。" }, method: :delete, class: "btn btn-danger" %>
+        </td>
+    </tr>
+    <% end %>
+</table>

@@ -1,0 +1,29 @@
+<div class="article">
+    <h1 class="text-center">記事一覧</h1>
+    <div class="my-3 text-center">
+        <%= link_to '記事新規作成', new_article_path, class: "btn btn-primary col-md-4" %>
+    </div>
+    <table class="article-table table table-border">
+        <tr>
+            <th scope="col">詳細表示</th>
+            <th scope="col">タイトル</th>
+            <th scope="col">画像</th>
+        </tr>
+        <tr>
+            <td><%= @article.title %></td>
+            <td><%= @article.content %></td>
+            <td>
+                <% if @article.image_presence == true %>
+                    <%= image_tag "/article_images/#{@article.image}", class: "article-img" %>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <div class="text-center my-3">
+        <%= link_to '編集', edit_article_path(@article.id), class: "btn btn-success" %>
+        <%= link_to '削除', article_path(@article.id), data: { confirm: "削除してよろしいでしょうか。" }, method: :delete, class: "btn btn-danger" %>
+    </div>
+    <div class="text-center">
+        <%= link_to '記事一覧へ戻る', articles_path, class: "btn btn-primary" %>
+    </div>
+</div>
