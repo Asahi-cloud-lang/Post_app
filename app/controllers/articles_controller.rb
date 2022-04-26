@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     end
     if @article.save
         flash[:success] = '記事を作成致しました。'
-        redirect_to articles_path
+        redirect_to article_path(@article.id)
     else
         flash[:danger] = '記事を作成に失敗しました'
         render :new
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
     @article.content = params[:article][:content]
     if @article.save
         flash[:success] = '記事を更新致しました。'
-        redirect_to articles_path
+        redirect_to article_path(@article.id)
     else
         flash[:danger] = '記事の更新に失敗しました'
         render :edit
